@@ -1,0 +1,157 @@
+# Keys
+title = "SRI Devoluciones"
+
+# Tables
+[project]
+name = "Papeles"
+description = "Papeles de Trabajo para realizar devoluciones."
+version = "1.0.0"
+updated = 2023-06-20T15:30:00Z
+author = "Jim Gonzalez"
+
+[database]
+sqlalchemy_database_uri = "postgresql+psycopg2://postgres:jdfoxito10@localhost/devoluciones"
+sqlalchemy_track_modifications = 0
+host = "localhost"
+usuario = "postgres"
+password = "jdfoxito10"
+port = 5432
+name = "devoluciones"
+connection_max = 5000
+enabled = true
+
+# Nested `tables`
+[environments]
+[environments.dev]
+ip = "10.21.178.245"
+dc = "UOP1JAGJ230722L"
+[environments.staging]
+ip = "10.21.178.245"
+dc = "UOP1JAGJ230722L"
+[environments.production]
+ip = "10.0.2.161"
+dc = "srigdevoluciones.sri.ad"
+
+# Array of Tables
+[[testers]]
+id = 1
+username = "jagonzalezj"
+password = "clave$Sencilla123"
+
+[[testers]]
+id = 3
+username = "jagonzalezj"
+password = "clave$Sencilla123"
+
+
+[configuracion]
+secret_key = '_5#y2L"ARIF4Q8z\n\xec]/'
+algorithm = "HS256"
+galleta = 'x-auth-ari'
+upload_folder = 'D:\SRI\Soluciones\devoluciones\carga'
+upload_folder_xlsx = 'D:\SRI\Soluciones\devoluciones\cargaxlsx'
+columnas = [
+  'agente_retencion',
+  'fecha_emision',
+  'serie',
+  'comprobante',
+  'autorizacion',
+  'porcentaje_iva',
+  'porcentaje_retencion_iva',
+  'valor_retenido',
+  'fecha_carga',
+  'contri',
+]
+extensiones = ['xlsx']
+num_columnas = 8
+paginacion = 100
+campo_vision = 20
+datetime64 = 'datetime64[ns]'
+formato_Ymd_HMS = '%Y-%m-%d %H:%M:%S'
+campos_declaraciones_origen = [
+  "anio_fiscal",
+  "mes_fiscal",
+  "ciclo",
+  "impuesto_causado",
+  "ct_mes_actual",
+  "fecha_recepcion",
+  "codigo_impuesto",
+  "numero_adhesivo",
+  "tot_impuesto_pagar_x_percepcion",
+  "total_impuesto_a_pagar_2610",
+  "saldo_crt_clo_ipr_msi_2220",
+  "sct_x_retenciones",
+]
+campos_declaraciones_origen_red = [
+  "anio_fiscal",
+  "mes_fiscal",
+  "ciclo",
+  "fecha_recepcion",
+  "codigo_impuesto",
+  "numero_adhesivo",
+  "tot_impuesto_pagar_x_percepcion",
+  "total_impuesto_a_pagar_2610",
+  "saldo_crt_clo_ipr_msi_2220",
+  "sct_x_retenciones",
+]
+cammpos_liquidacion = [
+  'IMPUESTO CAUSADO',
+  'CRÉDITO TRIBUTARIO MES ACTUAL',
+  'IMPUESTO RESULTANTE',
+  'SALDO CREDITO TRIBUTARIO POR ADQUISICIONES E IMPORTACIONES - POR PAGO MEDIANTE USO DE MEDIOS ELECTRÓNICOS MES ANTERIOR',
+  'SALDO CREDITO TRIBUTARIO POR RETENCIONES EN LA FUENTE DE IVA QUE LE HAN SIDO EFECTUADAS APLICABLES MES ANTERIOR',
+  '( - ) RETENCIONES VERIFICADAS Y VÁLIDAS',
+  '(=) SALDO A FAVOR CONTRIBUYENTE',
+  'SALDO CREDITO TRIBUTARIO POR ADQUISICIONES E IMPORTACIONES - POR PAGO MEDIANTE USO DE MEDIOS ELECTRÓNICOS MES SIGUIENTE',
+  'SALDO CREDITO TRIBUTARIO POR RETENCIONES EN LA FUENTE DE IVA QUE LE HAN SIDO EFECTUADAS MES SIGUIENTE',
+  'RETENCIONES A FAVOR DEL CONTRIBUYENNTE',
+  '(-) VALOR RETENCIONES COMPENSADAS POSTERIORES AL PERIODO SOLICITADO',
+  'RETENCIONES A DEVOLVER',
+  'IMPUESTO A PAGAR',
+]
+#disponibles
+#d_2024 = 'declaraciones_marzo_2024'
+#d_original = 'declaraciones_original'
+
+metodo_declaraciones = 'declaraciones_original'
+
+maquina_roja = '127.0.0.1'
+server_win64_RAM = '127.0.0.1'
+maquina_black = '127.0.0.1'
+
+[tablas_pg]
+esquema_temporal = 'temporal'
+esquema_public = 'public'
+#CONTRI CATASTRO PY
+tabla_dev_estadistica_base = 'dev_estadistica_base'
+tabla_dev_tramites_cons = 'dev_tramites_cons'
+tabla_dev_ruc_consultados = 'dev_ruc_consultados'
+#LISTADO PY
+tabla_dev_declaraciones_validas = 'dev_declaraciones_validas'
+tabla_dev_cargas_archivos = 'dev_cargas_archivos'
+tabla_dev_cargas_archivos_nv = 'dev_cargas_archivos_nv'
+#CADENA PY
+tabla_dev_resumen_periodo = 'dev_resumen_periodo'
+tabla_dev_cad_iva_procesa = 'dev_cad_iva_procesa'
+tabla_dev_cuadro_liquidacion = 'dev_cuadro_liquidacion'
+tabla_dev_resumen_analizados = 'dev_resumen_analizados'
+tabla_dev_resumen_verifica = 'dev_resumen_verifica'
+tabla_dev_resumen_resultados = 'dev_resumen_resultados'
+tabla_dev_pre_cadena_iva = 'dev_pre_cadena_iva'
+
+tabla_dev_analisis_previo = 'dev_analisis_previo'
+
+#DECLARACIONES PY
+tabla_dev_resultado_analisis_retencion = 'dev_resultado_analisis_retencion'
+
+#INFORME PY
+tabla_dev_resumen_cadena = 'dev_resumen_cadena'
+tabla_dev_informe_retencion = 'dev_informe_retencion'
+tabla_dev_providencias_vals = 'dev_providencias_vals'
+
+#FUTURO PY
+tabla_dev_compensa_futuro = 'dev_compensa_futuro'
+
+#FOTONES PY
+tabla_dev_observaciones = 'dev_observaciones'
+tabla_dev_memoria_casos = 'dev_memoria_casos'

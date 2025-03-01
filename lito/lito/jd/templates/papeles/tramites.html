@@ -1,0 +1,514 @@
+{% extends "partials/base.html" %}
+{% block title %}TRÁMITES{% endblock title %}
+{% block extra_css %}
+
+<!-- jsvectormap css -->
+<link href="{{url_for('static' ,filename='libs/jsvectormap/css/jsvectormap.min.css')}}" rel="stylesheet"
+    type="text/css" />
+
+<!--Swiper slider css-->
+<link href="{{url_for('static' ,filename='libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('static' ,filename='libs/nouislider/nouislider.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- gridjs css -->
+
+<link href="{{url_for('static' ,filename='libs/gridjs/theme/mermaid.min.css')}}" rel="stylesheet" type="text/css" />
+
+<!--<link href="{{url_for('static' ,filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('static' ,filename='js/layout.js')}}" rel="stylesheet" type="text/css" /> 
+<link href="{{url_for('static' ,filename='css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('static' ,filename='css/app.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('static' ,filename='css/custom.min.css')}}" rel="stylesheet" type="text/css" />-->
+
+
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Trámites</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Trámites</a></li>
+                                <li class="breadcrumb-item active">Administración</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+            <div class="row">
+                <div class="col-4">
+                    <div class="row" id="div_supervisores" name="div_supervisores">
+                    </div>
+
+                </div>
+                <div class="col-6">
+
+                </div>
+            </div>
+            <div class="row">
+
+                <input type="hidden" id="inp_caso_seleccionado" name="inp_caso_seleccionado" value="3487">
+                <input type="hidden" id="inp_caso_seleccionado_3ra" name="inp_caso_seleccionado_3ra" value="3488">
+                <div class="col-xl-12 col-lg-12">
+                    <div>
+                        <div class="card">
+                            <div class="card-header border-0">
+                                <div class="row g-4">
+                                    <div class="col-sm-auto">
+                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" id="csrf_user" name="csrf_user" value="{{intervalos["usuario"]}}">
+
+                                        <input type="hidden" id="in_xyz" name="in_xyz" value="{{intervalos["num_acceso"]}} ">
+
+                                        <!-- <div>
+                                            <a href=" apps-ecommerce-add-product.html" class="btn btn-success"
+                                            id="addproduct-btn"><i class="ri-add-line align-bottom me-1"></i> Add
+                                        Product
+                                        </a>
+                                    </div> -->
+                                </div>
+                                <div class="col-sm">
+                                    <div class="d-flex justify-content-sm-end">
+                                        <div class="search-box ms-2">
+                                            <input type="text" class="form-control" id="searchProductList"
+                                                placeholder="Busqueda Tramites...">
+                                            <i class="ri-search-line search-icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <ul class="nav nav-tabs-custom card-header-tabs border-bottom-0" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active fw-semibold" data-bs-toggle="tab"
+                                                href="#productnav-all" role="tab">
+
+                                                {{ p1 }}
+
+                                                <span class="badge badge-soft-danger align-middle rounded-pill ms-1"
+                                                    id="a_link_pestanha_uno">0</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link fw-semibold" data-bs-toggle="tab"
+                                                href="#productnav-published" role="tab" id="a_link_aprobados">
+                                                {{ p2 }}
+                                                <span class="badge badge-soft-danger align-middle rounded-pill ms-1"
+                                                    id="a_link_pestanha_dos">0</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link fw-semibold" data-bs-toggle="tab"
+                                                href="#productnav-draft" role="tab">
+                                                {{ p3 }}
+                                                <span class="badge badge-soft-danger align-middle rounded-pill ms-1"
+                                                    id="a_link_pestanha_tres">0</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link fw-semibold" data-bs-toggle="tab"
+                                                href="#productnav-cuatro" role="tab">
+
+                                                {{ p4 }}
+                                                <span class="badge badge-soft-danger align-middle rounded-pill ms-1"
+                                                    id="a_link_pestanha_cuatro">0</span>
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                                <div class="col-auto">
+                                    <div id="selection-element">
+                                        <div class="my-n1 d-flex align-items-center text-muted">
+                                            Select <div id="select-content" class="text-body fw-semibold px-1"></div>
+                                            Result <button type="button" class="btn btn-link link-danger p-0 ms-3"
+                                                data-bs-toggle="modal" data-bs-target="#removeItemModal">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card header -->
+                        <div class="card-body">
+
+                            <div class="tab-content text-muted">
+                                <div class="tab-pane active" id="productnav-all" role="tabpanel">
+                                    <div id="table-product-list-all" class="table-card gridjs-border-none"></div>
+                                </div>
+                                <!-- end tab pane -->
+
+                                <div class="tab-pane" id="productnav-published" role="tabpanel">
+                                    <div id="table-product-list-published" class="table-card gridjs-border-none"></div>
+                                </div>
+                                <!-- end tab pane -->
+
+                                <div class="tab-pane" id="productnav-draft" role="tabpanel">
+                                    <div class="py-4 text-center">
+                                        <div id="tabla_pestanhatres" class="table-card gridjs-border-none"></div>
+                                        <input type="hidden" id="delete-product" name="delete-product" value="">
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-pane" id="productnav-cuatro" role="tabpanel">
+                                    <div class="py-4 text-center">
+                                        <div id="tabla_pestanhacuatro" class="table-card gridjs-border-none"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal_tramites" class="modal fade" tabindex="-1" aria-labelledby="modalabel_caso" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalabel_caso">CASO </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-primary alert-dismissible alert-label-icon rounded-label fade show"
+                    role="alert">
+                    <h5 class="fs-15">
+                        {% if intervalos["perfil"] == 'Supervisor' -%}
+                        Estas aprobando el caso
+                        {% else -%}
+                        Estas finalizando el caso
+                        {% endif %}
+                        <span id="spa_txt_fecha_analisis"></span>
+                    </h5>
+                </div>
+                <div class="card product">
+                    <div class="card-body">
+                        <div class="row gy-3">
+                            <div class="col-sm">
+                                <div class="table-card">
+                                    <table class="table mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-medium">Contribuyente</td>
+                                                <td><span id="spa_txt_contri_name"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Periodo Desde</td>
+                                                <td><span class="badge badge-soft-danger"
+                                                        id="spa_txt_contri_desde"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">TRAMITE</td>
+                                                <td>
+                                                    <span id="spa_txt_contri_tramite"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Analista</td>
+                                                <td><span class="badge badge-soft-secondary" id="spa_txt_analista"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Supervisor</td>
+                                                <td><span class="badge badge-soft-secondary" id="spa_txt_supervisor">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Inicia</td>
+                                                <td><span class="text-info" id="spa_txt_inicia"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Resuelto En:</td>
+                                                <td><span class="text-info" id="spa_txt_resuelto_en"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Monto Excel:</td>
+                                                <td><span class="text-info" id="spa_txt_monto_excel"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Monto Solicitado:</td>
+                                                <td><span class="text-info" id="spa_txt_monto_solicitado"></td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="table-card">
+                                    <table class="table mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-medium">RUC</td>
+                                                <td>
+                                                    <span id="spa_txt_contri_ruc"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Periodo Hasta</td>
+                                                <td><span class="badge badge-soft-secondary"
+                                                        id="spa_txt_contri_hasta"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">ingresado</td>
+                                                <td><span class="badge badge-soft-danger"
+                                                        id="spa_txt_snt_ingresado"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium"></td>
+                                                <td><span class="badge badge-soft-primary" id="spa_txt_analista_nombre">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium"></td>
+                                                <td><span class="badge badge-soft-primary"
+                                                        id="spa_txt_supervisor_nombre"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Finaliza</td>
+                                                <td><span class="badge-outline-primary" id="spa_txt_finaliza"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Filas Listado:</td>
+                                                <td><span id="spa_txt_filas_listado"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Providencias:</td>
+                                                <td><span id="spa_txt_num_providencias"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Monto Devuelto:</td>
+                                                <td><span class="text-success" id="spa_txt_devuelto"></td>
+                                            </tr>
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light close" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-soft-warning btn-border" id="btn_devolver_caso"
+                    name="btn_devolver_caso">
+                    {% if intervalos["perfil"] == 'Supervisor' -%}
+                    Devolver Trámite
+                    {% else -%}
+                    Revalidar Trámite
+                    {% endif %}
+                </button>
+                <button type="button" class="btn btn-success" id="btn_aprobar_caso" name="btn_aprobar_caso">
+                    {% if intervalos["perfil"] == 'Supervisor' -%}
+                    Aprobar Trámite
+                    {% else -%}
+                    Finalizar Trámite
+                    {% endif %}
+                </button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="modal_tramites_3ra" class="modal fade" tabindex="-1" aria-labelledby="modalabel_caso_3ra" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalabel_caso_3ra">CASO </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-warning alert-dismissible alert-label-icon rounded-label fade show"
+                    role="alert">
+                    <h5 class="fs-15">
+                        {% if intervalos["perfil"] == 'Supervisor' -%}
+                        Estas reviviendo el caso
+                        {% else -%}
+                        Estas borrando el caso
+                        {% endif %}
+                        <span id="spa_txt_fecha_analisis_3ra"></span>
+                    </h5>
+                </div>
+                <div class="card product">
+                    <div class="card-body">
+                        <div class="row gy-3">
+                            <div class="col-sm">
+                                <div class="table-card">
+                                    <table class="table mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-medium">Contribuyente</td>
+                                                <td><span id="spa_txt_contri_name_3ra"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Periodo Desde</td>
+                                                <td><span class="badge badge-soft-danger"
+                                                        id="spa_txt_contri_desde_3ra"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">TRAMITE</td>
+                                                <td>
+                                                    <span id="spa_txt_contri_tramite_3ra"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Analista</td>
+                                                <td><span class="badge badge-soft-secondary" id="spa_txt_analista_3ra">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Supervisor</td>
+                                                <td><span class="badge badge-soft-secondary"
+                                                        id="spa_txt_supervisor_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Inicia</td>
+                                                <td><span class="text-info" id="spa_txt_inicia_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Resuelto En:</td>
+                                                <td><span class="text-info" id="spa_txt_resuelto_en_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Monto Excel:</td>
+                                                <td><span class="text-info" id="spa_txt_monto_excel_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Monto Solicitado:</td>
+                                                <td><span class="text-info" id="spa_txt_monto_solicitado_3ra"></td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="table-card">
+                                    <table class="table mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-medium">RUC</td>
+                                                <td>
+                                                    <span id="spa_txt_contri_ruc_3ra"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Periodo Hasta</td>
+                                                <td><span class="badge badge-soft-secondary"
+                                                        id="spa_txt_contri_hasta_3ra"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">ingresado</td>
+                                                <td><span class="badge badge-soft-danger"
+                                                        id="spa_txt_snt_ingresado_3ra"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium"></td>
+                                                <td><span class="badge badge-soft-primary"
+                                                        id="spa_txt_analista_nombre_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium"></td>
+                                                <td><span class="badge badge-soft-primary"
+                                                        id="spa_txt_supervisor_nombre_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Finaliza</td>
+                                                <td><span class="badge-outline-primary" id="spa_txt_finaliza_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Filas Listado:</td>
+                                                <td><span id="spa_txt_filas_listado_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Providencias:</td>
+                                                <td><span id="spa_txt_num_providencias_3ra"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium">Monto Devuelto:</td>
+                                                <td><span class="text-success" id="spa_txt_devuelto_3ra"></td>
+                                            </tr>
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light close" data-bs-dismiss="modal">Cerrar</button>
+
+                <button type="button" class="btn btn-primary" id="btn_aprobar_caso_3ra" name="btn_aprobar_caso_3ra">
+                    {% if intervalos["perfil"] == 'Supervisor' -%}
+                    Revivir Trámite
+                    {% else -%}
+                    Borrar Trámite
+                    {% endif %}
+                </button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div>
+</div><!-- /.modal -->
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+</div>
+<!-- end main content-->
+{% endblock content %}
+{% block extra_js %}
+
+<!-- 
+<script src="{{url_for('static' ,filename='libs/jquery/jquery.min.js')}}"></script> 
+<script src="{{url_for('static' ,filename='js/jquery4.js')}}"></script> 
+-->
+
+<script src="{{url_for('static' ,filename='libs/simplebar/simplebar.min.js')}}"></script>
+
+<!-- <script src="{{url_for('static' ,filename='libs/gridjs/gridjs.umd.js')}}"></script>  -->
+
+<script src="{{url_for('static' ,filename='js/dev/gridjs.production.min.js')}}"></script>
+
+<!-- <script src="{{url_for('static' ,filename='libs/gridjs/selection.umd.js')}}"></script> -->
+
+<script src="{{url_for('static' ,filename='js/dev/tramites_W.js')}}"></script>
+
+
+<!--Swiper slider js-->
+<script src="{{url_for('static' ,filename='libs/swiper/swiper-bundle.min.js')}}"></script>
+
+
+{% endblock extra_js %}

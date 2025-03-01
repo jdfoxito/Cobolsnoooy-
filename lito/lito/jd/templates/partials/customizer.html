@@ -1,0 +1,149 @@
+
+{% block right_sidebar %}
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"
+            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+
+    <!-- Theme Settings -->
+    <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
+        <div class="d-flex align-items-center bg-primary bg-gradient p-3 offcanvas-header">
+            <h5 class="m-0 me-2 text-white">REPORTES</h5>
+
+            <button type="button" class="btn-close btn-close-white ms-auto" id="customizerclose-btn" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <div data-simplebar class="h-100">
+                <div class="p-4">
+                    <h6 class="mb-0 fw-semibold text-uppercase fs-12">TRÁMITES</h6>
+                    <p class="text-muted">...</p>
+
+                    <div class="row">
+
+                    </div>
+
+                    <h6 class="mt-4 mb-0 fw-semibold text-uppercase fs-12">CHECK LIST</h6>
+                    <p class="text-muted">...</p>
+
+                    <div class="colorscheme-cardradio">
+                        <div class="row">
+                        </div>
+                    </div>
+
+                    <div id="layout-width">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase fs-12">DECLARACIONES</h6>
+                        <p class="text-muted">...</p>
+
+                        <div class="row">
+                        </div>
+                    </div>
+
+                    <div id="layout-position">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase fs-12">ANALISIS PERIODOS</h6>
+                        <p class="text-muted">...</p>
+
+                    </div>
+
+                    <h6 class="mt-4 mb-0 fw-semibold text-uppercase fs-12">INFORME DE REVISION</h6>
+                    <p class="text-muted">...</p>
+
+                    <div class="row">
+                    </div>
+
+                    <div id="sidebar-size">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase fs-12">RETENCIONES VALIDAS</h6>
+                        <p class="text-muted">...</p>
+
+                        <div class="row">
+
+                        </div>
+                    </div>
+
+                    <div id="sidebar-view">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase">COMPENSACIONES A FUTURO</h6>
+                        <p class="text-muted">Choose Default or Detached Sidebar view.</p>
+
+                        <div class="row">
+                        </div>
+                    </div>
+                    <div id="sidebar-color">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase fs-12">USABILIDAD</h6>
+                        <p class="text-muted">...</p>
+
+                        <div class="row">
+
+                        </div>
+                        <!-- end row -->
+    
+                        <div class="collapse" id="collapseBgGradient">
+                            <div class="d-flex gap-2 flex-wrap img-switch p-2 px-3 bg-light rounded">
+    
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient" value="gradient">
+                                    <label class="form-check-label p-0 avatar-xs rounded-circle" for="sidebar-color-gradient">
+                                        <span class="avatar-title rounded-circle bg-vertical-gradient"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-2" value="gradient-2">
+                                    <label class="form-check-label p-0 avatar-xs rounded-circle" for="sidebar-color-gradient-2">
+                                        <span class="avatar-title rounded-circle bg-vertical-gradient-2"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-3" value="gradient-3">
+                                    <label class="form-check-label p-0 avatar-xs rounded-circle" for="sidebar-color-gradient-3">
+                                        <span class="avatar-title rounded-circle bg-vertical-gradient-3"></span>
+                                    </label>
+                                </div>
+                                <div class="form-check sidebar-setting card-radio">
+                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-4" value="gradient-4">
+                                    <label class="form-check-label p-0 avatar-xs rounded-circle" for="sidebar-color-gradient-4">
+                                        <span class="avatar-title rounded-circle bg-vertical-gradient-4"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div id="sidebar-img">
+                        <h6 class="mt-4 mb-0 fw-semibold text-uppercase fs-12">NOVEDADES</h6>
+                        <p class="text-muted">...</p>
+
+                    </div>
+
+    
+                </div>
+            </div>
+    
+        </div>
+        <div class="offcanvas-footer border-top p-3 text-center">
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-light w-100" id="reset-layout">Cerrar</button>
+                </div>
+                <div class="col-6">
+                    <a href="https://www.sri.gob.ec/web/intersri/home" target="_blank" class="btn btn-primary w-100">SRI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock right_sidebar %}

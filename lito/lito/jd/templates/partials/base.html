@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable">
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock title %} | Devoluciones - Administración</title>
+    <meta content="{{ csrf_token() }}" name="csrf-token">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="devoluciones todo tipo de devolciiones" name="description" />
+    <meta content="Devoluciones" name="author" />
+    <meta name='keywords' content='login devoluciones cadena iva'>
+    <meta name='description' content='Papel | devoluciones cadena de iva'>
+    <meta name='subject' content='This site is for IVA refund!'>
+    <meta name='copyright' content='SRI 2024'>
+    <meta name='language' content='ES'>
+    <meta name='robots' content='index,follow'>
+    <meta name='revised' content='Tuesday, December 1th, 2023, 11:19 am'>
+    <meta name='abstract' content='Devoluciones'>
+    <meta name='topic' content='Devoluciones'>
+    <meta name='summary' content='Devoluciones'>
+    <meta name='Classification' content='Business'>
+    <meta name='author' content='name, jagonzalezj@sri.gob.ec'>
+    <meta name='designer' content='jim'>
+    <meta name='reply-to' content='jagonzalezj@sri.gob.ec'>
+    <meta name='owner' content='SRI'>
+    <meta name='url' content='https://10.2.0.161/'>
+    <meta name='identifier-URL' content='https://10.2.0.161/'>
+    <meta name='directory' content='submission'>
+    <meta name='pagename' content='SRI REFUND TAXES'>
+    <meta name='category' content='Refund Taxes'>
+    <meta name='coverage' content='www'>
+    <meta name='distribution' content='Global'>
+    <meta name='rating' content='General'>
+    <meta name='revisit-after' content='7 days'>
+    <meta name='subtitle' content='Refund Taxes'>
+    <meta name='target' content='all'>
+    <meta name='HandheldFriendly' content='True'>
+    <meta name='MobileOptimized' content='320'>
+    <meta name='date' content='Dec. 01, 2023'>
+    <meta name='search_date' content='2023-11-01'>
+    <meta name='DC.title' content='Refund TAXES'>
+    <meta name='ResourceLoaderDynamicStyles' content=''>
+    <meta name='medium' content='blog'>
+    <meta name='syndication-source' content='https://srienlinea.sri.gob.ec/sri-en-linea/consulta/103'>
+    <meta name='original-source' content='https://srienlinea.sri.gob.ec/sri-en-linea/consulta/103'>
+    <meta name='pageKey' content='guest-home'>
+    <meta itemprop='name' content='jQTouch'>
+    <meta http-equiv='Expires' content='0'>
+    <meta http-equiv='Pragma' content='no-cache'>
+    <meta http-equiv='Cache-Control' content='no-cache'>
+    <meta http-equiv='imagetoolbar' content='no'>
+    <meta http-equiv='x-dns-prefetch-control' content='off'>
+
+    <meta name='og:title' content='Papel | SRI REFUND IVA TAX'>
+    <meta name='og:type' content='refund tax'>
+    <meta name='og:url' content='https://srienlinea.sri.gob.ec/sri-en-linea/consulta/103'>
+    <meta name='og:image'
+        content='https://srienlinea.sri.gob.ec/sri-en-linea/assets/recursos-sri-en-linea/imagenes/logo/sri-en-linea.svg'>
+    <meta name='og:site_name' content='GADIR'>
+    <meta name='og:description' content='Refund tax specifically IVA'>
+
+    <meta name='fb:page_id' content='https://www.facebook.com/SRIoficialECUADOR/?locale=es_LA'>
+    <meta name='application-name' content='SRIenlinea'>
+    <meta name='og:email' content='SRIenlinea@sri.gob.ec'>
+    <meta name='og:phone_number' content='1700 774 774 '>
+    <meta name='og:fax_number' content='1700 774 774 '>
+
+    <link rel="shortcut icon" href="{{url_for('static' ,filename='images/favicon.ico')}}" />
+
+    {% block css %}
+    {% block extra_css %}
+    {% endblock extra_css %}
+
+
+    <script src="{{url_for('static' ,filename='js/layout.js')}}"></script>
+    <link href="{{url_for('static' ,filename='css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet"
+        type="text/css" />
+    <link href="{{url_for('static' ,filename='css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url_for('static' ,filename='css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="{{url_for('static' ,filename='css/custom.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+    {% endblock css %}
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        {% block header %}
+        {% include "partials/topbar.html" %}
+        {% endblock header %}
+        {% block sidebar %}
+        {% include "partials/sidebar.html" %}
+        {% endblock sidebar %}
+        {% block content %}
+
+        {% block footer %}
+        {% endblock footer %}
+        {% endblock content %}
+    </div>
+
+    {% block extra_content %}
+    {% endblock extra_content %}
+
+    <!-- END layout-wrapper -->
+    {% block right_sidebar %}
+    {% include "partials/customizer.html" %}
+    {% endblock right_sidebar %}
+
+    {% block javascript %}
+    <!-- JAVASCRIPT -->
+    <script src="{{url_for('static' ,filename='js/jquery-3.7.1.min.js')}}"></script>    
+    <script src="{{url_for('static' ,filename='js/axios.min.js')}}"></script>
+    <script src="{{url_for('static' ,filename='libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <script src="{{url_for('static' ,filename='libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{url_for('static' ,filename='libs/node-waves/waves.min.js')}}"></script>
+    <script src="{{url_for('static' ,filename='libs/feather-icons/feather.min.js')}}"></script>
+
+    <script src="{{url_for('static' ,filename='libs/moment/moment.js')}}"></script>
+    <script src="{{url_for('static' ,filename='js/plugins.js')}}"></script>
+
+    {% block extra_js %}
+    {% endblock extra_js %}
+
+    <!-- App js -->
+    <script src="{{url_for('static' ,filename='js/app.js')}}"></script>
+
+    <!--
+    <script src="{{url_for('static' ,filename='libs/jquery/jquery.min.js')}}"></script> 
+    <script src="{{url_for('static' ,filename='js/jquery4.js')}}"></script>
+    <script src="{{url_for('static' ,filename='js/axios.min.js')}}"></script>
+    <script src="{{url_for('static' ,filename='libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    -->
+
+
+    {% endblock javascript %}
+
+
+</body>
+
+</html>

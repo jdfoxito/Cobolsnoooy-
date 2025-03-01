@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>{% block title %}Cadenas de Iva{% endblock title %} | Devoluciones</title>
+    <meta content="{{ csrf_token() }}" name="csrf-token">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Cadenas de Iva" name="description" />
+    <meta content="Devoluciones" name="jagonzalezj" />
+
+
+    <meta name='keywords' content='login devoluciones cadena iva'>
+    <meta name='description' content='devoluciones cadena de iva'>
+    <meta name='subject' content='This site is for IVA refund!'>
+    <meta name='copyright' content='SRI 2024'>
+    <meta name='language' content='ES'>
+    <meta name='robots' content='index,follow'>
+    <meta name='revised' content='Tuesday, December 1th, 2023, 11:19 am'>
+    <meta name='abstract' content='Devoluciones'>
+    <meta name='topic' content='Devoluciones'>
+    <meta name='summary' content='Devoluciones'>
+    <meta name='Classification' content='Business'>
+    <meta name='author' content='name, jagonzalezj@sri.gob.ec'>
+    <meta name='designer' content='jim'>
+    <meta name='reply-to' content='jagonzalezj@sri.gob.ec'>
+    <meta name='owner' content='SRI'>
+    <meta name='url' content='https://10.2.0.161/'>
+    <meta name='identifier-URL' content='https://10.2.0.161/'>
+    <meta name='directory' content='submission'>
+    <meta name='pagename' content='SRI REFUND TAXES'>
+    <meta name='category' content='Refund Taxes'>
+    <meta name='coverage' content='www'>
+    <meta name='distribution' content='Global'>
+    <meta name='rating' content='General'>
+    <meta name='revisit-after' content='7 days'>
+    <meta name='subtitle' content='Refund Taxes'>
+    <meta name='target' content='all'>
+    <meta name='HandheldFriendly' content='True'>
+    <meta name='MobileOptimized' content='320'>
+    <meta name='date' content='Dec. 01, 2023'>
+    <meta name='search_date' content='2023-11-01'>
+    <meta name='DC.title' content='Refund TAXES'>
+    <meta name='ResourceLoaderDynamicStyles' content=''>
+    <meta name='medium' content='blog'>
+    <meta name='syndication-source' content='https://srienlinea.sri.gob.ec/sri-en-linea/consulta/103'>
+    <meta name='original-source' content='https://srienlinea.sri.gob.ec/sri-en-linea/consulta/103'>
+    <meta name='pageKey' content='guest-home'>
+    <meta itemprop='name' content='jQTouch'>
+    <meta http-equiv='Expires' content='0'>
+    <meta http-equiv='Pragma' content='no-cache'>
+    <meta http-equiv='Cache-Control' content='no-cache'>
+    <meta http-equiv='imagetoolbar' content='no'>
+    <meta http-equiv='x-dns-prefetch-control' content='off'>
+
+    <meta name='og:title' content='Login | SRI REFUND IVA TAX'>
+    <meta name='og:type' content='refund tax'>
+    <meta name='og:url' content='https://srienlinea.sri.gob.ec/sri-en-linea/consulta/103'>
+    <meta name='og:image'
+        content='https://srienlinea.sri.gob.ec/sri-en-linea/assets/recursos-sri-en-linea/imagenes/logo/sri-en-linea.svg'>
+    <meta name='og:site_name' content='GADIR'>
+    <meta name='og:description' content='Refund tax specifically IVA'>
+
+    <meta name='fb:page_id' content='https://www.facebook.com/SRIoficialECUADOR/?locale=es_LA'>
+    <meta name='application-name' content='SRIenlinea'>
+    <meta name='og:email' content='SRIenlinea@sri.gob.ec'>
+    <meta name='og:phone_number' content='1700 774 774 '>
+    <meta name='og:fax_number' content='1700 774 774 '>
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}">
+
+    <script src="{{url_for('static',filename='js/layout.js')}}"></script>
+
+    <!--<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" /> -->
+    <link href="{{url_for('static',filename='libs/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{url_for('static',filename='css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url_for('static',filename='css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url_for('static',filename='css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+    <div class="auth-page-wrapper pt-5">
+        <!-- auth page bg -->
+        <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
+            <div class="bg-overlay"></div>
+
+            <div class="shape">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 1440 120">
+                    <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- auth page content -->
+        <div class="auth-page-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center mt-sm-5 mb-4 text-white-50">
+                            <div>
+                                <a href="index.html" class="d-inline-block auth-logo">
+                                    <img src="{{url_for('static' ,filename='images/logo-light.png')}}" alt=""
+                                        width="100%" height="20">
+                                </a>
+                            </div>
+                            <p class="mt-3 fs-15 fw-medium">Cadenas de Iva & Devoluciones Excepcionales</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+                {% block content %}
+                {% endblock %}
+
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end auth page content -->
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <form>
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                            </form>
+
+
+                            <p class="mb-0 text-muted">&copy;
+                                <!-- <script>document.write(new Date().getFullYear())</script> -->
+                                {{ year }}
+                                SRI <i class="mdi mdi-web-plus text-danger"></i> TAXES REFUND
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+    </div>
+    <!-- end auth-page-wrapper -->
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{{url_for('static',filename='libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static',filename='libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{url_for('static',filename='libs/node-waves/waves.min.js')}}"></script>
+    <script src="{{url_for('static',filename='libs/feather-icons/feather.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+    <script src="{{url_for('static',filename='js/plugins.js')}}"></script>
+
+    <!-- particles js -->
+    <script src="{{url_for('static',filename='libs/particles.js/particles.js')}}"></script>
+    <!-- particles app js -->
+    <script src="{{url_for('static',filename='js/pages/particles.app.js')}}"></script>
+    <!-- password-addon init -->
+    <script src="{{url_for('static',filename='js/pages/password-addon.init.js')}}"></script>
+</body>
+
+</html>

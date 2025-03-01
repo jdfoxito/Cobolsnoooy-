@@ -1,0 +1,316 @@
+/*
+Custom SRI templat
+Author: jim
+Website: https://sri.gob.ec/
+Contact: sri@tsri.com
+File: Custom Css File
+*/
+
+
+/*
+icono
+*/
+
+
+
+@media (prefers-color-scheme: dark) {
+  .https-only .icon {
+    filter: invert(1) grayscale(1);
+  }
+}
+
+/*Tamaños*/
+
+.col_200px {
+  width: 200px;
+}
+
+/* end tamaños*/
+
+.trColorMetallicSeaweed {
+  background-color: #0a7e8c;
+}
+
+
+.trColorNNN {
+  background-color: #b0e0e6;
+}
+
+.trColorblanco {
+  background-color: #fff;
+}
+
+
+.trColorGreen {
+  background-color: #D1EFBD;
+}
+
+.trColorRojoBajo {
+  background-color: #FAECEA;
+}
+
+
+.trlimon {
+  background-color: #eaf5f5;
+}
+
+
+
+.modal-content {
+  border-radius: 0;
+  background-clip: border-box;
+  min-height: 1400px;
+  min-width: 600px;
+
+  height: 2200px;
+  width: 120%;
+}
+
+
+.modal .modal-content {
+  overflow: hidden;
+}
+
+.modal-body {
+  overflow-y: scroll;
+}
+
+.bg-success-masbajo {
+  --bs-bg-opacity: 1;
+  color: black !important;
+  background-color: rgba(233, 255, 219, 1) !important;
+}
+
+
+
+.bg-warning {
+  color: black !important;
+}
+
+
+.bg-info {
+  color: black !important;
+}
+
+
+.bg-primary {
+  color: black !important;
+}
+
+.td_resaltado_tr {
+  background-color: #D1EFBD;
+  font-weight: bold;
+}
+
+
+
+td[colspan="2"] {
+  text-align: center !important;
+  box-shadow: 0px 0px 2px #160808 inset !important;
+}
+
+th[colspan="2"] {
+  text-align: center !important;
+  box-shadow: 0px 0px 2px #160808 inset !important;
+}
+
+
+
+
+/* FREEZE PANE*/
+
+/*table {
+  text-align: center;
+}
+*/
+
+.table-container {
+  width: 100%;
+  height: 300px;
+  overflow: scroll;
+}
+
+table th,
+table td {
+  /*white-space: nowrap; */
+  padding: 10px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  /*word-wrap: break-word!important;*/
+
+}
+
+table tr th:first-child,
+table td:first-child {
+  position: sticky;
+  width: 100px;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  font-weight: bold;
+  text-align: left;
+  color: darkblue;
+  /*word-wrap: break-word!important; */
+  white-space: pre-line;
+
+}
+
+table tr th:first-child {
+  z-index: 11;
+}
+
+table tr th {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background: #fff;
+}
+
+.ui-datepicker-calendar {
+  display: none;
+}
+
+th {
+  text-align: center;
+  border: 1px solid black;
+}
+
+
+
+
+
+/*
+#nupyloader:not([hidden]) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nupyloader::after {
+  content: "";
+  width: 800px;
+  height: 800px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #f25a41;
+  border-radius: 100%;
+  will-change: transform;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+*/
+
+
+.loading {
+  position: absolute;
+  background: white;
+  opacity: 0.3;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+}
+
+@-webkit-keyframes loadingicon {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingicon {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.animation {
+  position: absolute;
+  top: 41%;
+  left: 46%;
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  border-top: 5px solid #232323;
+  border-bottom: 5px solid #232323;
+  border-right: 5px solid rgba(255, 255, 255, 0);
+  border-left: 5px solid rgba(255, 255, 255, 0);
+  border-radius: 50%;
+  z-index: 100;
+  -webkit-animation-name: loadingicon;
+  animation-name: loadingicon;
+  -webkit-animation-duration: 400ms;
+  animation-duration: 400ms;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+
+
+
+body .ui-button:enabled:not(:focus):hover {
+  background-color: #082f68
+}
+
+body .ui-button {
+  font-weight: bolder;
+  font-size: .875em;
+  margin-top: 15px;
+  margin-bottom: 15px
+}
+
+body .ui-button.ui-button-secondary:hover {
+  background-color: #e7eaee;
+  color: #434a54
+}
+
+body .ui-button.ui-button-secondary:enabled:not(:focus):hover {
+  background-color: #e7eaee
+}
+
+.ui-button.ui-button-secondary:focus {
+  background-color: #aab2bd;
+  border-color: #ccc;
+  color: #434a54
+}
+
+.sri-boton-bloque {
+  width: 100%
+}
+
+/*
+#modal_tramites{
+
+}
+*/
+@media screen and (min-width: 575px) {
+  body .ui-button {
+    margin-top: 0;
+    margin-bottom: 0
+  }
+}
